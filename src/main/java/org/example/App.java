@@ -37,6 +37,7 @@ Use a single output statement.
  */
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Scanner;
 
 public class App
@@ -57,6 +58,6 @@ public class App
 
         bigDollar = (bigEuro.multiply(bigRate).divide(new BigDecimal("100")));
 
-        System.out.println(bigEuro + " euros at an exchange rate of " + bigRate + " is " + bigDollar + " U.S. dollars.");
+        System.out.println(bigEuro + " euros at an exchange rate of " + bigRate + " is " + bigDollar.setScale(2, RoundingMode.HALF_UP).toString() + " U.S. dollars.");
     }
 }
